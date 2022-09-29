@@ -1,0 +1,57 @@
+.tab {
+    max-height: 35px;
+
+    margin-top: 24px;
+
+    background-color:#F2F1EF;
+
+}
+
+
+
+
+.tabButton {
+    font-size: 18px;
+    font-weight: 400;
+
+    background-color: transparent;
+    color: #1C1C1C;
+
+    padding: 3px 12px;
+    margin-left: 16px;
+    border: none;
+
+    transition: all .4s;
+
+    cursor: pointer;
+}
+
+@media (max-width:420px){
+  .tabButton {
+    margin-left: 8px;
+    font-size: 16px;
+    padding: 3px 8px;
+  }
+}
+
+
+.active {
+    color: white;
+    background-color: #522E73;
+    box-shadow: 3px 2px 8px 1px rgba(0, 0, 0, 0.2);
+
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding-bottom: 15px;
+
+    transition: all .5s initial;
+}
+
+
+.lineTop {
+    width: 100%;
+    height: 3px;
+
+    background-color: #522E73;
+}
+

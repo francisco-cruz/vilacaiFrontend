@@ -1,0 +1,58 @@
+.App {
+  display: flex;
+  justify-content: center;
+
+}
+
+main {
+  width: 1200px;
+  min-height: 100vh;
+
+  background-color: white;
+  box-shadow: 0 0 10px 5px #522E7320;
+
+  margin-top: 32px;
+  margin-bottom: 32px;
+
+  border-radius: 4px;
+
+  position: relative;
+
+}
+
+@media (max-width: 1250px) {
+  main {
+    width: 1000px;
+  }
+}
+
+@media (max-width: 1100px) {
+  main {
+    width: 900px;
+  }
+}
+
+@media (max-width: 950px) {
+  main {
+    width: 800px;
+  }
+}
+
+@media (max-width: 850px) {
+  main {
+    width: 700px;
+  }
+}
+
+@media (max-width: 750px) {
+  main {
+    width: 600px;
+  }
+}
+
+@media (max-width: 650px) {
+  main {
+    width: 100%;
+    margin: 0;
+  }
+}

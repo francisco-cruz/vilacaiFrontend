@@ -1,0 +1,19 @@
+.secao {
+  margin: 0 24px
+}
+.container_title {
+  margin-left: 8px;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+.tile_secao {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.qntd_secao {
+  font-size: 13px;
+  font-weight: medium;
+  margin-top: 2px;
+}

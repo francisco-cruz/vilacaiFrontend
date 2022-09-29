@@ -1,0 +1,91 @@
+
+.bgModalStore {
+    background-color:#291A3B50 ;
+
+    min-width: 100vw;
+    min-height: 100vh;
+    z-index: 101;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalStore {
+    background-color: white;
+
+    width: 500px;
+    height: 250px;
+
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+@media  (max-width: 550px) {
+    .modalStore {
+        width: 380px;
+    }
+}
+
+@media  (max-width: 400px) {
+    .modalStore {
+        width: 350px;
+    }
+}
+
+.infoModal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    margin-left: 32px;
+}
+.infoOperation {
+    display: flex;
+
+
+}
+
+.textInfoModal {
+    margin-top: 4px;
+    font-weight: 600;
+
+    color: #808080;
+}
+
+.infoAdress {
+    display: flex;
+
+    margin-top: 24px;
+}
+
+.titleModalStore {
+    font-weight: 600;
+    color: #A6A6A6 ;
+}
+
+
+
+#closedModal {
+    margin-top: 16px;
+    margin-right: 16px;
+
+    cursor: pointer;
+}
+
+.iconModalInfo {
+    color: #A6A6A6;
+
+    font-size: 22px;
+    
+    margin-right: 8px;
+
+    margin-top: 4px;
+}

@@ -1,0 +1,93 @@
+.footer {
+    width: 100%;
+    height: 100px;
+    background-color: #522E73;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+}
+
+#text-vila {
+    color: white;
+
+    display: flex;
+    align-items: center;
+}
+
+
+.line {
+    width: 2px;
+    height: 30px;
+    margin-left: 16px;
+    background-color: #CCCCCC;
+}
+
+#sociais {
+    display: flex;
+    margin-left: 16px;
+    gap: 12px;
+
+}
+
+#icon-zap {
+    font-size: 28px;
+
+    background-color: #ffffff30;
+    color: white;
+
+    padding: 2px 3px;
+
+    border-radius: 2px;
+
+    transition: background-color .5s;
+    cursor: pointer;
+}
+
+#icon-zap:hover {
+    background-color: #ffffff50;
+}
+
+
+#icon-insta {
+    font-size: 28px;
+
+    background-color: #ffffff30;
+    color: white;
+
+    padding: 2px 3px;
+
+    border-radius: 2px;
+
+    transition: background-color .5s;
+    cursor: pointer;
+}
+
+#icon-insta:hover {
+    background-color: #ffffff50;
+
+}
+#contact {
+    color: white;
+    background-color: #ffffff30;
+
+    padding: 4px 8px;
+    border-radius: 2px;
+
+    font-size: 12px;
+
+    cursor: pointer;
+    transition: background-color .5s;
+}
+
+#contact:hover {
+    background-color: #ffffff50;
+}

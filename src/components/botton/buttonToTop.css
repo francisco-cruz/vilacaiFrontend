@@ -1,0 +1,36 @@
+#buttonToTop {
+    width: 50px;
+    height: 50px;
+
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom:100px;
+    left: 90% ;
+    transform: translate(-50%, 50%);
+ 
+    
+    border: 0;
+    border-radius: 8px;
+    margin-right: 24px;
+
+    background-color: #11A857;
+    color: white;
+
+    box-shadow: 0 0 8px 3px #11A85760;
+    transition: top 2s;
+    z-index: 100;
+    cursor: pointer;
+    
+    
+}
+
+#icon-to-up {
+    font-size: 16px;
+
+}
+#buttonToTop:hover {
+    box-shadow: 0 0 8px 6px #11A85770;
+    color: white;
+}

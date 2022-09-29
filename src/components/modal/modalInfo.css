@@ -1,0 +1,193 @@
+.bgModalInfo {
+    background-color: transparent;
+
+    min-width: 100vw;
+    min-height: 100vh;
+
+    z-index: 105;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalInfo {
+    background-color: white;
+
+    width: 550px;
+    height: 100vh;
+
+    max-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    position: absolute;
+    right: 0;
+
+}
+
+
+#headerModalInfo {
+    width: 550px;
+    height: 70px;
+
+    position: fixed;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background-color: white;
+    box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.2);
+
+    z-index: 102;
+}
+
+#headerModalInfo p {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 12px;
+
+}
+
+#bgIconClosed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #F2F2F2;
+    padding:10px 12px;
+    margin-left: 16px;
+    border-radius: 4px;
+
+    cursor: pointer;
+
+
+}
+
+#bgIconClosed:active {
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.2) inset;
+    transform: scale(.9);
+}
+
+#iconClosed {
+
+    color: #323035;
+
+    font-size: 22px;
+}
+
+#contentInfo {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+    margin-right: 32px;
+
+}
+
+input[type="text"] {
+    margin-top: 24px;
+    height: 50px;
+    border-radius: 4px;
+    border: 0;
+    padding-left: 8px;
+
+    background-color:#F2F2F2;
+}
+
+select {
+    margin-top: 24px;
+    background-color: #F2F2F2;
+    padding: 16px 0;
+    border: 0;
+    border-radius: 4px;
+
+}
+
+option {
+    background-color: #522E73;
+    color: white;
+    padding: 1px;
+    margin-top: 8px;
+    border-radius: 4px;
+}
+
+
+.troco {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 16px;
+}
+
+#checkbox {
+    padding: 0;
+    margin:0 0 0 8px;
+}
+
+input[type="number"],
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+
+
+    margin: 0;
+    margin-top: 8px;
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+    border: 0;
+    padding-left: 8px;
+
+    background-color:#F2F2F2;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+#btnEnviarPedido{
+    width: 100%;
+    margin-top: 64px;
+    border-radius: 8px;
+    border: none;
+    background-color: #FFCC59;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 16px 0;
+    cursor: pointer;
+}
+
+
+@media (max-width:650px) {
+    .modalInfo {
+        width: 100%;
+    }
+
+    #headerModalInfo {
+        width: 100%;
+    }
+
+    #contentInfo {
+        width: 100%;
+    }
+
+    input[type="text"] {
+        margin-right: 32px;
+    }
+
+    select {
+        margin-right: 32px;
+    }
+
+    /* #btnEnviarPedido  {
+       margin-right: 32px;
+    } */
+
+}
+

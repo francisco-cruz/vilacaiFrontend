@@ -1,0 +1,308 @@
+
+.bgModalRecheio {
+    background-color:hsla(267, 39%, 17%, 0.314);
+    
+    min-width: 100vw;
+    min-height: 100vh;
+
+    z-index: 101;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalRecheio {
+    background-color: white;
+
+    width: 550px;
+    height: 100vh;
+
+    max-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    position: absolute; 
+    right: 0;
+   
+}
+
+
+#headerModalRecheio {
+    width: 550px;
+    height: 70px;
+
+    position: fixed;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background-color: white;
+    box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.2); 
+
+    z-index: 102;
+}
+
+#headerModalRecheio p {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 12px;
+
+}  
+
+#bgIconClosed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #F2F2F2;
+    padding:10px 12px;  
+    margin-left: 16px;
+    border-radius: 4px;
+    
+    cursor: pointer;
+    
+
+}
+
+#bgIconClosed:active {
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.2) inset;
+    transform: scale(.9);
+}
+
+#iconClosed {
+
+    color: #323035;
+    
+    font-size: 22px;
+}
+    
+
+
+#mainModalRecheio {
+    width: 550px;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-bottom: 100px;
+}
+
+#mainModalRecheio img {
+    margin-top: 70px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#content {
+    width:533px ;
+    height: auto;
+  
+}
+
+.lineModalRecheio {
+    width: 100%;
+    height: 4px;
+    margin-top: -7px;
+    background-color: #522E73;
+
+}
+
+#contentText {
+    margin-top: 64px;
+    margin-left: 16px;
+}
+
+#sectionModal {
+    font-weight: bold;
+    font-size: 14px;
+
+}
+
+#nameModal {
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 8px;
+}
+
+#priceModal {
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 16px;
+}
+
+#obsModal {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 24px;
+    color: #11A857;
+    margin-bottom: 16px;
+}
+
+#contentQntdRecheios {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 70px;
+    background-color: #D9D9D9;
+    padding: 12px 0;
+}
+
+#itemsQntdRecheio {
+    margin-left: 16px;
+}
+
+#titleQntd {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#valueQntd {
+    font-size: 15px;
+    color: #6D6D6C;
+}
+
+#footerModal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 553px;
+    height: 100px;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    padding: 16px 38px 16px 16px;
+    box-shadow: 0 -2px 5px 2px rgba(0, 0, 0, 0.05);
+}
+#btnQntdModal {
+    display: flex;
+    align-items: center;
+    border: 1px solid #D9D9D9;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+#btnQntdModal  p {
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 48px;
+    
+}
+
+#btnQntdModal svg {
+    color: #525050;
+    font-size: 26px;
+    font-weight: 400;
+
+    cursor: pointer;
+}
+
+#btnQntdModal svg:active {
+border: 3px solid #66B6FF;
+border-radius: 8px;
+}
+
+#btnAdicionar {
+    background-color: #FFCC59;
+    padding: 16px 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#btnAdicionar p {
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 38px;
+    
+}
+
+#sugestao {
+margin-top: 16px;
+margin-left: 16px;
+margin-right: 16px;
+margin-bottom: 16px;
+}
+
+#sugestao div {
+    display: flex;
+    align-items: center;
+}
+
+#sugestao div svg {
+    font-size: 24px;
+    margin-top: 4px;
+    margin-right: 6px; 
+    
+    color:#323035;
+}
+
+#sugestao textarea {
+    
+    width: 100%;
+    height: 200px;
+    resize: none;
+    border: #D9D9D9 1px solid;
+    border-radius: 4px;
+
+    margin-top: 8px;
+    padding: 8px;
+}
+
+
+@media (max-width:650px) {
+    .modalRecheio {
+        width: 100%;
+    }
+
+    #headerModalRecheio {
+        width: 100%;
+    }
+
+    #content {
+        width: 100%;
+    }
+
+
+    #mainModalRecheio {
+        width: 100%;
+    }
+
+    #footerModal {
+        width: 100%;
+        padding: 16px;
+    }
+}
+
+@media (max-width:530px) {
+    #btnQntdModal  p {
+        padding: 0 20px
+    }
+
+}
+
+@media (max-width:465px) {
+    #btnAdicionar p {
+        padding: 2px 16px;
+        font-size: 16px;
+        
+    }
+
+    #btnQntdModal  p {
+        padding: 0 12px
+    }
+ 
+}
+
+@media (max-width: 360px) {
+    #btnAdicionar p {
+        padding: 2px 8px;
+        font-size: 15px;
+        
+    }
+
+}

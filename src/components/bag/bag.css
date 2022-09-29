@@ -1,0 +1,75 @@
+.bagStore {
+    width: 100%;
+    height: 60px;
+    background-color: #323035;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemsBag {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    justify-content: space-between;
+    cursor: pointer;
+
+}
+
+@media (max-width: 550px){
+    .itemsBag{
+        width: 400px;
+    }
+
+    .titleBag {
+        font-size: 15px;
+    }
+
+    .priceBag {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 430px){
+    .itemsBag{
+        width: 370px;
+    }
+
+    .titleBag {
+        font-size: 12px;
+    }
+
+    .priceBag {
+        font-size: 14px;
+    }
+}
+
+#iconBag {
+    color: white;
+    font-size: 20px;
+}
+
+.textBag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleBag {
+    color: white;
+    font-weight: bold;
+}
+
+.subtitleBag {
+    color: #ffffff90;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.priceBag {
+    font-size: 18px;
+    color: white;
+}

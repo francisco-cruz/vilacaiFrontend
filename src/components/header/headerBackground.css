@@ -1,0 +1,12 @@
+#bg {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px ;
+
+    box-shadow: 0 0 10px 5px #522E7320;
+}
