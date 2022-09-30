@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
-import HeaderAdmin from "../../components/headerAdmin/headerAdmin"
+import HeaderAdmin from "../../../components/headerAdmin/headerAdmin"
+
 
 function AdminRecheio (){
   return(

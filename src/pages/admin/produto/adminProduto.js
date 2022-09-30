@@ -21,6 +21,7 @@ function AdminProduto (){
     <div>
       < HeaderAdmin />
       <h1>Página produtos</h1>
+      <Link to={"/createProduto"}><button className="btn-adicionar">Adiconar</button></Link>
       <table>
       {allProdutos.map(produto => (
         <tr>

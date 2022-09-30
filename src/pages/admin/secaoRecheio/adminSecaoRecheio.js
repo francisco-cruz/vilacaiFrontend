@@ -1,7 +1,8 @@
-import api from "../../services/api"
+
 import React, { useState, useEffect} from "react"
 import { Link } from "react-router-dom"
-import HeaderAdmin from "../../components/headerAdmin/headerAdmin"
+import HeaderAdmin from "../../../components/headerAdmin/headerAdmin"
+import api from "../../../services/api"
 
 function AdminSecaoRecheio (){
   const [allSecaoRecheio, setAllSecaoRecheio] = useState([])

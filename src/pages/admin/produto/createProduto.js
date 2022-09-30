@@ -1,6 +1,8 @@
 function CreateProduto () {
   return (
-    <></>
+    <>
+    <h1>criar produto</h1>
+    </>
   )
 }
 
