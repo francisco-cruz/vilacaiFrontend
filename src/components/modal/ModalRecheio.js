@@ -1,122 +1,93 @@
-import React from "react";
-import './modalRecheio.css'
-import {MdArrowBackIosNew} from 'react-icons/md'
-import {HiPlus} from 'react-icons/hi'
-import {HiMinusSm} from 'react-icons/hi'
-import {TbMessage} from 'react-icons/tb'
+import React, { useState } from "react";
+import "./modalRecheio.css";
+import imgCopo from "../../assets/images/copo.jpeg";
+import { MdArrowBackIosNew } from "react-icons/md";
+import { HiPlus } from "react-icons/hi";
+import { HiMinusSm } from "react-icons/hi";
+import { TbMessage } from "react-icons/tb";
 
-import imgCopo from '../../assets/images/copo.jpeg'
+function ModalRecheio(props) {
+  let [qtndProduct, setQntdProduct] = useState(0);
 
-
-function ModalRecheio ({ id="modalRecheio", onClose = ()=> {} }) {
-
-
-
-  // const handleNoScroll = () => {
-  //   const body = document.getElementsByTagName('body')[0]
-  //   body.classList.remove('noScroll')
-  // }
-
-
-  const openModal = ( event )=>{
-    if( event.target.id === id ){
-      // handleNoScroll()
-      onClose()
-
+  const handleMinusQntdProduct = () => {
+    console.log(qtndProduct);
+    const minQtdnProduct = 0;
+    if (qtndProduct >= minQtdnProduct) {
+      return setQntdProduct(qtndProduct--);
     }
-  }
+    return qtndProduct;
+  };
 
-    return (
-        <div className="bgModalRecheio" id= {id} onClick={openModal}>
-            <div className="modalRecheio">
-              <header id="headerModalRecheio">
-                <div id="bgIconClosed" onClick={onClose}>
-                < MdArrowBackIosNew id="iconClosed" />
-                </div>
-                <p>Vilaçaí</p>
-              </header>
+  const handlePlusQntdProduct = () => {
+    const maxQtdnProduct = 10;
+    if (qtndProduct < maxQtdnProduct) {
+      return setQntdProduct(qtndProduct++);
+    }
+    return qtndProduct;
+  };
 
-              <div id="mainModalRecheio">
-              <div id="content">
-                <img src={imgCopo}  alt=""/>
-                <div className="lineModalRecheio"></div>
-                <div id="contentText">
-                  <p id="sectionModal">Açaí</p>
-                  <p id="nameModal">Copo 300 ml</p>
-                  <p id="priceModal">R$ 12,00</p>
-                  <p id="obsModal">Até 8 adicionais</p>
-               </div>
-              </div>
-              <div id="contentQntdRecheios">
-                <div id="itemsQntdRecheio">
-                  <p id="titleQntd">Adicionais</p>
-                  <p id="valueQntd">0 de 8</p>
-                </div>
-              </div>
+  const saveRequest = () => {
+    console.log("salvou");
+    localStorage.setItem("qtndProduct", qtndProduct);
+  };
 
+  const closeModal = (event) => {
+    if (event.target.id === props.id) {
+      props.onClose();
+    }
+  };
 
-              <div id="sugestao">
-                <div>
-                  < TbMessage />
-                  <p>Alguma sugestão?</p>
-                </div>
-                <textarea
-                placeholder="Ex: Muita Nutella, pouco morango."
-                >
-                </textarea>
+  return (
+    <div className="bgModalRecheio" id={props.id} onClick={closeModal}>
+      <div className="modalRecheio">
+        <header id="headerModalRecheio">
+          <div id="bgIconClosed" onClick={props.onClose}>
+            <MdArrowBackIosNew id="iconClosed" />
+          </div>
+          <p>Vilaçaí</p>
+        </header>
 
-              </div>
-
-              <div id="sugestao">
-                <div>
-                  < TbMessage />
-                  <p>Alguma sugestão?</p>
-                </div>
-                <textarea
-                placeholder="Ex: Muita Nutella, pouco morango."
-                >
-                </textarea>
-
-              </div>
-
-              <div id="sugestao">
-                <div>
-                  < TbMessage />
-                  <p>Alguma sugestão?</p>
-                </div>
-                <textarea
-                placeholder="Ex: Muita Nutella, pouco morango."
-                >
-                </textarea>
-
-              </div>
-
-              <div id="sugestao">
-                <div>
-                  < TbMessage />
-                  <p>Alguma sugestão?</p>
-                </div>
-                <textarea
-                placeholder="Ex: Muita Nutella, pouco morango."
-                >
-                </textarea>
-
-              </div>
+        <div id="mainModalRecheio">
+          <div id="content">
+            <img src={imgCopo} alt="" />
+            <div className="lineModalRecheio"></div>
+            <div id="contentText">
+              <p id="sectionModal">{props.data.section.name}</p>
+              <p id="nameModal">{props.data.name}</p>
+              <p id="priceModal">{props.data.price} R$</p>
+              <p id="obsModal">Até 8 recheios</p>
+              {/* <p id="obsModal">{props.data.name}</p> */}
             </div>
-
-              <div id="footerModal">
-                <div id="btnQntdModal">
-                  < HiMinusSm />
-                  <p>0</p>
-                  < HiPlus />
-                </div>
-                <div id="btnAdicionar">
-                  <p>Adicionar R$ 100,00</p>
-                </div>
-              </div>
+          </div>
+          <div id="contentQntdRecheios">
+            <div id="itemsQntdRecheio">
+              <p id="titleQntd">Adicionais</p>
+              <p id="valueQntd">0 de 8</p>
             </div>
+          </div>
+
+          <div id="sugestao">
+            <div>
+              <TbMessage />
+              <p>Alguma sugestão?</p>
+            </div>
+            <textarea placeholder="Ex: Muita Nutella, pouco morango."></textarea>
+          </div>
         </div>
-    )
+
+        <div id="footerModal">
+          <div id="btnQntdModal">
+            <HiMinusSm onClick={handleMinusQntdProduct} />
+            <p>{qtndProduct}</p>
+            <HiPlus onClick={handlePlusQntdProduct} />
+          </div>
+          <div id="btnAdicionar" onClick={saveRequest}>
+            <p>Adicionar R$ 100,00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default ModalRecheio
+export default ModalRecheio;

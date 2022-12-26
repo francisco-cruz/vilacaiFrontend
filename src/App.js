@@ -1,13 +1,10 @@
-import  React from 'react'
-
-
+import React from 'react'
 import './styles/global.css'
 import './styles/App.css'
-
 import Routes from './routes'
 
 
-function App () {
+function App() {
   return (
     <Routes />
   )

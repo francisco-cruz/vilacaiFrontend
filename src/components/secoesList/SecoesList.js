@@ -1,43 +1,41 @@
-import React, {useState, useEffect}  from "react"
-import api from "../../services/api"
-import SecaoProduto from "./secaoProduto/SecaoProduto"
+import React, { useState, useEffect } from "react";
+import api from "../../services/api";
+import SecaoProduto from "./secaoProduto/SecaoProduto";
 
+function SecoesList() {
+  const [allSecoes, setAllSecoes] = useState([]);
+  const [allProdutos, setAllProdutos] = useState([]);
 
-
-function SecoesList () {
-  const [allSecoes, setAllSecoes] = useState([])
-  const [allProdutos, setAllProdutos] = useState([])
-
-  
   useEffect(() => {
     async function getAllSecoes() {
-      const response = await api.get('/SecaoProduto')
-      setAllSecoes(response.data)
+      const response = await api.get("/sections");
+      setAllSecoes(response.data.sections);
     }
 
-    getAllSecoes()
-  }, [])
+    getAllSecoes();
+    // console.log(allSecoes)
+  }, []);
 
   useEffect(() => {
     async function getAllProdutos() {
-      const response = await api.get('/produtos')
-      setAllProdutos(response.data)
+      const response = await api.get("/products");
+      setAllProdutos(response.data);
     }
 
-    getAllProdutos()
-  }, [])
-
+    getAllProdutos();
+  }, []);
 
   return (
-    
-    <div className='secoes'>
-    {allSecoes.map(secao => (
-      <SecaoProduto key={secao.id} secao={secao} allProdutos={allProdutos} />
-    ))}
-  </div> 
-
-  )
-
+    <div className="secoes">
+      {allSecoes.map((section) => (
+        <SecaoProduto
+          key={section.id}
+          section={section}
+          allProdutos={allProdutos}
+        />
+      ))}
+    </div>
+  );
 }
 
-export default SecoesList
+export default SecoesList;
