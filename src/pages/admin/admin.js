@@ -1,38 +1,83 @@
-import { Link } from 'react-router-dom'
-import HeaderAdmin from '../../components/headerAdmin/headerAdmin'
-import '../../styles/admin.css'
-
-function Admin () {
-
+import { Link } from "react-router-dom";
+import {
+  Button,
+  Stack,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableContainer,
+} from "@chakra-ui/react";
+import HeaderAdmin from "../../components/headerAdmin/headerAdmin";
+function Admin() {
   return (
-    <div> 
-      < HeaderAdmin />
-      <table>
-        <tr>
-            <th>Administração</th>
-        </tr>
-        <tr>
-            <td><Link to={"/secaoproduto"}>Seção de Produtos</Link><button className='btn-adicionar'>Adicionar</button></td>
-        </tr>
-        <hr/>
-
-        <tr>
-        <td><Link to={"/produto"}>Produtos</Link><button className='btn-adicionar'>Adicionar</button></td>
-        </tr>
-        <hr/>
-
-        <tr>
-        <td><Link to={"/secaorecheio"}>Seção de Recheios</Link><button className='btn-adicionar'>Adicionar</button></td>
-        </tr>
-        <hr/>
-
-        <tr>
-        <td><Link to={"/recheio"}>Recheios</Link><button className='btn-adicionar'>Adicionar</button></td>
-        </tr>
-
-      </table>
-    </div>
-  )
+    <>
+    <HeaderAdmin/>
+      <Stack px={5}>
+        <TableContainer mt={10}>
+          <Table variant="striped" colorScheme="purple">
+            <Thead>
+              <Tr>
+                <Th>Administração</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              <Tr>
+                <Td
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <Link to={"/admin/products"}>Produtos</Link>
+                  <Link to={"/admin/createProduct"}>
+                    <Button colorScheme="green">Adicionar</Button>
+                  </Link>
+                </Td>
+              </Tr>
+              <Tr>
+                <Td
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <Link to={"/admin/sectionsProduct"}>Seção de Produtos</Link>
+                  <Link to={"/admin"}>
+                    <Button colorScheme="green">Adicionar</Button>
+                  </Link>
+                </Td>
+              </Tr>
+              <Tr>
+                <Td
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <Link to={"/admin/fillings"}>Recheios</Link>
+                  <Link>
+                    <Button colorScheme="green">Adicionar</Button>
+                  </Link>
+                </Td>
+              </Tr>
+              <Tr>
+                <Td
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <Link to={"/admin/sectionsFillings"}>Seção de Recheios</Link>
+                  <Link>
+                    <Button colorScheme="green">Adicionar</Button>
+                  </Link>
+                </Td>
+              </Tr>
+            </Tbody>
+          </Table>
+        </TableContainer>
+      </Stack>
+    </>
+  );
 }
 
-export default Admin
+export default Admin;

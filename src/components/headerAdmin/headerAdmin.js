@@ -1,18 +1,15 @@
-import { Link } from 'react-router-dom'
-import '../../styles/admin.css'
-function HeaderAdmin () {
-
+import { Link } from "react-router-dom";
+import { Button } from "@chakra-ui/react";
+import "../../styles/admin.css";
+export default function HeaderAdmin() {
   return (
-  <>
-    <header>
-    <h3>Olá, Admin.</h3>
-    <Link to={"/"} className='btn-sair'>Sair</Link>
-    </header>
-    <div className='breadcrumb'>
-      < Link>Page</Link><p>/page current</p>
-    </div>
-  </>
-  )
+    <>
+      <header>
+        <h3>Olá, Vilaçaí.</h3>
+        <Link to={"/"}>
+          <Button colorScheme="yellow">Sair</Button>
+        </Link>
+      </header>
+    </>
+  );
 }
-
-export default HeaderAdmin

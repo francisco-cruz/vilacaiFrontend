@@ -8,10 +8,17 @@ import { TbMessage } from "react-icons/tb";
 
 function ModalRecheio(props) {
   let [qtndProduct, setQntdProduct] = useState(0);
+  const maxQtdnProduct = 10;
+  const minQtdnProduct = 0;
+
+  const product = {
+    name: "",
+    price: "",
+    qndt: "",
+  }
 
   const handleMinusQntdProduct = () => {
     console.log(qtndProduct);
-    const minQtdnProduct = 0;
     if (qtndProduct >= minQtdnProduct) {
       return setQntdProduct(qtndProduct--);
     }
@@ -19,7 +26,7 @@ function ModalRecheio(props) {
   };
 
   const handlePlusQntdProduct = () => {
-    const maxQtdnProduct = 10;
+    console.log(qtndProduct);
     if (qtndProduct < maxQtdnProduct) {
       return setQntdProduct(qtndProduct++);
     }
@@ -28,7 +35,7 @@ function ModalRecheio(props) {
 
   const saveRequest = () => {
     console.log("salvou");
-    localStorage.setItem("qtndProduct", qtndProduct);
+    localStorage.setItem('produto', JSON.stringify(product));
   };
 
   const closeModal = (event) => {

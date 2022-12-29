@@ -4,12 +4,9 @@ import "./produto.css";
 
 function Produto(product) {
   const [modalVisible, setModalVisible] = useState(false);
-  console.log(product);
-
   function openModal() {
     setModalVisible(true);
-  }
-
+  }  
   return (
     <>
       <div className="produto" onClick={openModal}>
@@ -30,7 +27,7 @@ function Produto(product) {
         </div>
       </div>
       {modalVisible ? (
-        <ModalRecheio id = "modalRecheio" data={product.data} onClose={() => setModalVisible(false)} />
+        <ModalRecheio id = "modalRecheio" allProducts={product.allProducts} data={product.data} onClose={() => setModalVisible(false)} />
       ) : null}
     </>
   );

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import HeaderAdmin from "../../../components/headerAdmin/headerAdmin"
 import api from "../../../services/api"
 
-function AdminSecaoRecheio (){
+export default function SectionsFillings (){
   const [allSecaoRecheio, setAllSecaoRecheio] = useState([])
 
   useEffect(() => {
@@ -32,6 +32,3 @@ function AdminSecaoRecheio (){
     </div>
   )
 }
-
-
-export default AdminSecaoRecheio

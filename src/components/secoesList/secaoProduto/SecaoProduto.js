@@ -19,7 +19,7 @@ function SecaoProduto({ section, allProdutos }) {
       </div>
 
       {ProductsOfTheSection.map((product) => (
-        <Produto key={product.id} data={product} />
+        <Produto key={product.id} data={product} allProducts={allProdutos} />
       ))}
     </div>
   );

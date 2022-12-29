@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import HeaderAdmin from "../../../components/headerAdmin/headerAdmin"
 import api from "../../../services/api"
 
-function AdminSecaoProduto (){
+export default function SectionsProduct (){
 
   const [allSecoes, setAllSecoes] = useState([])
 
@@ -33,6 +33,3 @@ function AdminSecaoProduto (){
     </div>
   )
 }
-
-
-export default AdminSecaoProduto
