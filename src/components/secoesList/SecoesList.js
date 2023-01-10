@@ -6,27 +6,22 @@ function SecoesList() {
   const [allSecoes, setAllSecoes] = useState([]);
   const [allProdutos, setAllProdutos] = useState([]);
 
-  useEffect(() => {
-    async function getAllSecoes() {
+  async function getAllSecoes() {
       const response = await api.get("/sections");
       setAllSecoes(response.data.sections);
-    }
+  }
 
-    getAllSecoes();
-    // console.log(allSecoes)
-  }, []);
+  async function getAllProdutos() {
+    const response = await api.get("/products");
+    setAllProdutos(response.data);
+  }
 
   useEffect(() => {
-    async function getAllProdutos() {
-      const response = await api.get("/products");
-      setAllProdutos(response.data);
-    }
-
+    getAllSecoes();
     getAllProdutos();
   }, []);
 
-  return (
-    <div className="secoes">
+    return <div className="secoes">
       {allSecoes.map((section) => (
         <SecaoProduto
           key={section.id}
@@ -35,7 +30,7 @@ function SecoesList() {
         />
       ))}
     </div>
-  );
+
 }
 
 export default SecoesList;

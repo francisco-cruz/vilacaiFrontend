@@ -11,6 +11,7 @@ import {
   TableContainer,
 } from "@chakra-ui/react";
 import HeaderAdmin from "../../components/headerAdmin/headerAdmin";
+
 function Admin() {
   return (
     <>

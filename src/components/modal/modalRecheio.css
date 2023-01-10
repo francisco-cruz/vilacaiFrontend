@@ -32,6 +32,10 @@
    
 }
 
+#iconClosed {
+    cursor: pointer;
+}
+
 
 #headerModalRecheio {
     width: 550px;

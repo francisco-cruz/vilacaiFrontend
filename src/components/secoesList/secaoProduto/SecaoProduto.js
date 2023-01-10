@@ -3,6 +3,7 @@ import Produto from "../../produto/Produto";
 import "./secao.css";
 
 function SecaoProduto({ section, allProdutos }) {
+
   const ProductsOfTheSection = allProdutos.products.filter(
     (product) => product.section.id === section.id
   );
@@ -18,9 +19,11 @@ function SecaoProduto({ section, allProdutos }) {
         <p className="qntd_secao">10 opcões</p>
       </div>
 
-      {ProductsOfTheSection.map((product) => (
-        <Produto key={product.id} data={product} allProducts={allProdutos} />
-      ))}
+      {ProductsOfTheSection.map((product) => {
+        const image = `http://127.0.0.1:3333${product.image.file_src}`;
+        const newProduct = {...product, img: image};
+        return <Produto key={product.id} {...newProduct} allProducts={allProdutos} />
+      })}
     </div>
   );
 }

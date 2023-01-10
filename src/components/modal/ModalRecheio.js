@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./modalRecheio.css";
-import imgCopo from "../../assets/images/copo.jpeg";
+// import imgCopo from "../../assets/images/copo.jpeg";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { HiPlus } from "react-icons/hi";
 import { HiMinusSm } from "react-icons/hi";
 import { TbMessage } from "react-icons/tb";
 
-function ModalRecheio(props) {
+function ModalRecheio({id, name, price, qntd, img, onClose}) {
   let [qtndProduct, setQntdProduct] = useState(0);
   const maxQtdnProduct = 10;
   const minQtdnProduct = 0;
@@ -39,29 +39,32 @@ function ModalRecheio(props) {
   };
 
   const closeModal = (event) => {
-    if (event.target.id === props.id) {
-      props.onClose();
+    if (event.target.id === id) {
+      onClose();
     }
   };
 
   return (
-    <div className="bgModalRecheio" id={props.id} onClick={closeModal}>
+    <div className="bgModalRecheio" id={id} onClick={closeModal}>
       <div className="modalRecheio">
         <header id="headerModalRecheio">
-          <div id="bgIconClosed" onClick={props.onClose}>
-            <MdArrowBackIosNew id="iconClosed" />
+          {/* <div id="bgIconClosed" onClick={onClose}> */}
+          <div>
+            <MdArrowBackIosNew
+              id="iconClosed"
+              onClick={onClose} />
           </div>
           <p>Vilaçaí</p>
         </header>
 
         <div id="mainModalRecheio">
           <div id="content">
-            <img src={imgCopo} alt="" />
+            <img src={img} alt="" />
             <div className="lineModalRecheio"></div>
             <div id="contentText">
-              <p id="sectionModal">{props.data.section.name}</p>
-              <p id="nameModal">{props.data.name}</p>
-              <p id="priceModal">{props.data.price} R$</p>
+              {/* <p id="sectionModal">{props.data.section.name}</p> */}
+              <p id="nameModal">{name}</p>
+              <p id="priceModal">{price} R$</p>
               <p id="obsModal">Até 8 recheios</p>
               {/* <p id="obsModal">{props.data.name}</p> */}
             </div>

@@ -7,7 +7,7 @@ import Products from "./pages/admin/produto/adminProduto";
 import SectionsFillings from "./pages/admin/secaoRecheio/adminSecaoRecheio";
 import Fillings from "./pages/admin/recheio/adminRecheio";
 import CreateProduct from "./pages/admin/produto/createProduto";
-
+import EditProduct from "./pages/admin/produto/editProduto"
 function Routes() {
   return (
     <BrowserRouter>
@@ -16,6 +16,7 @@ function Routes() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/products" element={<Products />} />
         <Route path="/admin/createProduct" element={<CreateProduct />} />
+        <Route path="/admin/editProduct" element={<EditProduct />} />
 
         <Route path="/admin/sectionsProduct" element={<SectionsProduct />} />
         
