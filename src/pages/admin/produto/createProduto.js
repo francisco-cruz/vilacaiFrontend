@@ -22,7 +22,7 @@ export default function CreateProduct() {
     const image = document.querySelector("#image").files[0];
     data.append("file", image, image.name);
 
-    const response = await api
+    await api
       .post("/images", data, {
         headers: {
           "Content-Type": `multipart/form-data`,
@@ -40,11 +40,6 @@ export default function CreateProduct() {
       <Heading textAlign="center" mt={10}>
         Novo Produto
       </Heading>
-      {/* <Select placeholder="Select option">
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
-      </Select> */}
       <Stack
         mt={10}
         px={5}

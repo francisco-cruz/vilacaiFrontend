@@ -8,76 +8,55 @@ import {
   Table,
   TableContainer,
   Tbody,
-  Td,
   Th,
   Thead,
   Tr,
 } from "@chakra-ui/react";
+import SectionProductsAdmin from "../../../components/secoesList/sectionProductsAdmin";
 
 export default function SectionsProduct() {
-  const [allSecoes, setAllSecoes] = useState([]);
+  const [sections, setSections] = useState([]);
 
-  async function getAllSecoes() {
+  const getSections = async () => {
     const response = await api.get("/sections");
-    setAllSecoes(response.data.sections);
-  }
-
-  const removeSection = async (id) => {
-    await api
-      .delete("/sections", {
-        data: {
-          id,
-        },
-      })
-      .then((res) => {
-        if (res.status >= 200 && res.status <= 299) {
-          console.log("Section removed");
-          getAllSecoes();
-        } else throw new Error(res.data);
-      })
-      .catch((err) => console.log(err));
+    setSections(response.data.sections);
   };
 
   useEffect(() => {
-    getAllSecoes();
+    getSections();
   }, []);
 
   return (
-    <div>
+    <>
       <HeaderAdmin />
-      <Link to={"/admin/createProduct"}>
-        <button className="btn-adicionar">Adiconar</button>
-      </Link>
-
-      <Stack px={5} shadow="md">
-        <TableContainer mt={10}>
+      <Stack mt={10} mx={5} alignItems={"flex-end"}>
+        <Link to={"/admin/createProduct"}>
+          <Button colorScheme="green">Adiconar</Button>
+        </Link>
+      </Stack>
+      <Stack mx={5}>
+        <TableContainer mt={5}>
           <Table variant="striped" colorScheme="purple">
             <Thead>
               <Tr>
-                <Th>Produtos</Th>
+                <Th>Seções de Produtos</Th>
               </Tr>
             </Thead>
             <Tbody>
-              {allSecoes.map((section) => (
-                <Tr key={section.id}>
-                  <Td>
-                    <Link to={""}>{section.name}</Link>
-                    <div className="buttons-table">
-                      <Button className="btn-editar">Editar</Button>
-                      <Button
-                        className="btn-excluir"
-                        onClick={() => removeSection(section.id)}
-                      >
-                        Excluir
-                      </Button>
-                    </div>
-                  </Td>
-                </Tr>
-              ))}
+              {sections.map((section) => {
+                return (
+                  <SectionProductsAdmin
+                    key={section.id}
+                    {...section}
+                    sections={sections}
+                    setSections={setSections}
+                  />
+                );
+              })}
             </Tbody>
           </Table>
         </TableContainer>
       </Stack>
-    </div>
+    </>
   );
 }

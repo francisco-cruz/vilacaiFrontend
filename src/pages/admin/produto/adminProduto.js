@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import HeaderAdmin from "../../../components/headerAdmin/headerAdmin";
 import api from "../../../services/api";
+import ProductAdmin from "../../../components/produto/produtoAdmin";
 import {
   Button,
   Table,
@@ -9,7 +10,6 @@ import {
   Tbody,
   Tr,
   Th,
-  Td,
   TableContainer,
   Stack,
 } from "@chakra-ui/react";
@@ -20,25 +20,6 @@ export default function Products() {
   const getAllProdutos = async () => {
     const response = await api.get("/products");
     setProducts(response.data.products);
-  };
-
-  const deleteProduct = async (id) => {
-    await api
-      .delete("/products", {
-        data: {
-          id: id,
-        },
-      })
-      .then((res) => {
-        console.log("Product removed with success");
-        if (res.status >= 200 && res.status <= 299) {
-          console.log("Produt removed with success!");
-          getAllProdutos();
-        } else throw new Error(res);
-      })
-      .catch((err) => {
-        throw new Error(err);
-      });
   };
 
   useEffect(() => {
@@ -62,26 +43,9 @@ export default function Products() {
               </Tr>
             </Thead>
             <Tbody>
-              {products.map((product) => (
-                <Tr key={product.id}>
-                  <Td
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="space-between"
-                  >
-                    <Link to={"/admin/editProduct"}>{product.name}</Link>
-                    <div className="buttons-table">
-                      <Link to={"/admin/editProduct"}><Button colorScheme="gray">Editar</Button></Link>
-                      <Button
-                        colorScheme="red"
-                        onClick={() => deleteProduct(product.id)}
-                      >
-                        Excluir
-                      </Button>
-                    </div>
-                  </Td>
-                </Tr>
-              ))}
+              {products.map((product) => {
+                return <ProductAdmin key={product.id} {...product} products={products} setProducts={setProducts} />
+              })}
             </Tbody>
           </Table>
         </TableContainer>
