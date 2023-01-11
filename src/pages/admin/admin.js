@@ -44,7 +44,7 @@ function Admin() {
                   justifyContent="space-between"
                 >
                   <Link to={"/admin/sectionsProduct"}>Seção de Produtos</Link>
-                  <Link to={"/admin"}>
+                  <Link to={"/admin/createSectionsProduct"}>
                     <Button colorScheme="green">Adicionar</Button>
                   </Link>
                 </Td>

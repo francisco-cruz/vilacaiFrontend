@@ -62,7 +62,7 @@ export default function CreateProduct() {
           <Text mb="8px">Imagem</Text>
           <Input id="image" type="file" accept="image/*" />
           <Button mt={5} w="100%" colorScheme="green" onClick={save}>
-            Criar Produto
+            Adicionar Produto
           </Button>
         </form>
       </Stack>

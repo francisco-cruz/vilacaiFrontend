@@ -16,6 +16,7 @@ import SectionProductsAdmin from "../../../components/secoesList/sectionProducts
 
 export default function SectionsProduct() {
   const [sections, setSections] = useState([]);
+  const [form, setForm] = useState("create");
 
   const getSections = async () => {
     const response = await api.get("/sections");
@@ -30,7 +31,7 @@ export default function SectionsProduct() {
     <>
       <HeaderAdmin />
       <Stack mt={10} mx={5} alignItems={"flex-end"}>
-        <Link to={"/admin/createProduct"}>
+        <Link to={"/admin/createSectionsProduct"}>
           <Button colorScheme="green">Adiconar</Button>
         </Link>
       </Stack>
@@ -50,6 +51,8 @@ export default function SectionsProduct() {
                     {...section}
                     sections={sections}
                     setSections={setSections}
+                    form={form}
+                    setForm={setForm}
                   />
                 );
               })}

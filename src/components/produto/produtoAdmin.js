@@ -5,7 +5,6 @@ import api from "../../services/api";
 import ModalAdminDel from "../modal/modalAdminDel";
 
 const ProductAdmin = ({ id, name, setProducts }) => {
-
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const getAllProdutos = async () => {
