@@ -22,7 +22,7 @@ function Routes() {
 
         <Route path="/admin/sectionsProduct" element={<SectionsProduct />} />
         <Route path="/admin/createSectionsProduct" element={<CreateSectionsProduct />} />
-        <Route path="/admin/editSectionsProduct" element={<EditSectionsProduct />} />
+        <Route path="/admin/editSectionsProduct/:id" element={<EditSectionsProduct />} />
 
 
 

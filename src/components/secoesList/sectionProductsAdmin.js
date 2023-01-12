@@ -34,7 +34,7 @@ const SectionProductsAdmin = ({ id, name, setSections, form, setForm }) => {
         <Td display="flex" alignItems="center" justifyContent="space-between">
           <Link to={"/admin/editSectionProducts"}>{name}</Link>
           <div className="buttons-table">
-            <Link to={"/admin/editSectionsProduct"}>
+            <Link to={`/admin/editSectionsProduct/${id}`}>
               <Button colorScheme="gray" onClick={() => setForm("edit")}>
                 Editar
               </Button>
