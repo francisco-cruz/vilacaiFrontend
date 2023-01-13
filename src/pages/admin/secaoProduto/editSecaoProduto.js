@@ -1,56 +1,39 @@
 import { Button, Heading, Input, Stack, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import MyAlert from "../../../components/alert/myAlert";
 import HeaderAdmin from "../../../components/headerAdmin/headerAdmin";
 import api from "../../../services/api";
-import axios from "axios";
 
 function EditRecheio() {
   const { id } = useParams();
-  const { section, setSection } = useState();
+  const [section, setSection] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
-  // const getSection = () => {
-  //   api.get("/sections/show", {
-  //       data: {
-  //         id
-  //       }}).then((res) => {
-  //       if(res.status >= 200 && res.status <= 299)
-  //         console.log(res.data);
-  //       else
-  //         throw Error(res.status)
-  //     }).catch((err) => {
-  //       throw Error(err.message);
-  //     });
-  //     // setSection(response.data)
-  // };
+  const getSection = () => {
+    api.get(`/sections/show/${id}`)
+      .then((res) => {
+        if(res.status >= 200 && res.status <= 299){
+          setSection(res.data.section);
+          setIsLoading(false);
+        }else{
+          setIsLoading(false);
+          setIsError(true);
+        }
+      }).catch(err => {
+        setIsError(true);
+      })
+  };
 
-  axios.get("http://127.0.0.1:3333/sections/show", {
-  data: {
-      id: 19
-  }}).then((res) => {
-  console.log(res.data);
-    }).catch(err => console.log(err));
+  useEffect(() => {
+    getSection();
+  }, []);
 
+  if(isLoading)
+    return <h1>Carregando...</h1>
 
-  // const update = async () => {
-  //   const newName = document.querySelector("#inputEditSectionProducts").value;
-
-  //   await api
-  //     .put(`/sections/${id}`, {
-  //       name: newName,
-  //     })
-  //     .then((res) => {
-  //       console.log("Section update with success");
-  //       if (res.status >= 200 && res.status <= 299) {
-  //         console.log("Section update with success!");
-  //         <MyAlert status="success" message="Seção Atualizada com Sucesso" />;
-  //       } else throw new Error(res);
-  //     })
-  //     .catch((err) => {
-  //       throw new Error(err);
-  //     });
-  // };
+  if(isError)
+    return <h1 style={{color: "red"}}>Erro...</h1>
 
   return (
     <>
@@ -68,7 +51,7 @@ function EditRecheio() {
       >
         <form>
           <Text mb="8px">Nome</Text>
-          <Input />
+          <Input defaultValue={section.name}/>
           <Button mt={5} w="100%" colorScheme="green">
             Salvar Alterações
           </Button>
