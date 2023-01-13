@@ -15,7 +15,7 @@ import FormData from "form-data";
 import HeaderAdmin from "../../../components/headerAdmin/headerAdmin";
 
 export default function CreateProduct() {
-  const save = async () => {
+  const saveProduct = async () => {
     let data = new FormData();
     // const name = document.querySelector("#name").value;
     // const price = document.querySelector("#price").value;
@@ -61,7 +61,7 @@ export default function CreateProduct() {
           </NumberInput>
           <Text mb="8px">Imagem</Text>
           <Input id="image" type="file" accept="image/*" />
-          <Button mt={5} w="100%" colorScheme="green" onClick={save}>
+          <Button mt={5} w="100%" colorScheme="green" onClick={saveProduct}>
             Adicionar Produto
           </Button>
         </form>

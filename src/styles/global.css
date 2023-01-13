@@ -11,7 +11,6 @@ html, body, #root {
 }
 
 body {
-    background-color: #E0DAE5;
     -webkit-font-smoothing: antialiased
 }
 
@@ -21,4 +20,8 @@ body {
 
 body, input, button, textarea, link {
     font-family: 'Poppins', sans-serif;
+}
+
+input {
+    background-color: white !important;
 }

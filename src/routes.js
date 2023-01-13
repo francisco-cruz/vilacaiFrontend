@@ -8,6 +8,8 @@ import EditSectionsProduct from "./pages/admin/secaoProduto/editSecaoProduto";
 import Products from "./pages/admin/produto/adminProduto";
 import SectionsFillings from "./pages/admin/secaoRecheio/adminSecaoRecheio";
 import Fillings from "./pages/admin/recheio/adminRecheio";
+import CreateFilling from "./pages/admin/recheio/createRecheio";
+import EditFilling from "./pages/admin/recheio/editRecheio"
 import CreateProduct from "./pages/admin/produto/createProduto";
 import EditProduct from "./pages/admin/produto/editProduto"
 
@@ -25,9 +27,12 @@ function Routes() {
         <Route path="/admin/createSectionsProduct" element={<CreateSectionsProduct />} />
         <Route path="/admin/editSectionsProduct/:id" element={<EditSectionsProduct />} />
 
+        <Route path="/admin/fillings" element={<Fillings />} />
+        <Route path="/admin/createFilling" element={<CreateFilling />} />
+        <Route path="/admin/editFilling/:id" element={<EditFilling />} />
+
 
         <Route path="/admin/sectionsFillings" element={<SectionsFillings />} />
-        <Route path="/admin/fillings" element={<Fillings />} />
       </RoutesDom>
     </BrowserRouter>
   );

@@ -4,7 +4,7 @@ import { useDisclosure, Button, Tr, Td } from "@chakra-ui/react";
 import api from "../../services/api";
 import ModalAdminDel from "../modal/modalAdminDel";
 
-const SectionProductsAdmin = ({ id, name, setSections }) => {
+const SectionProductsAdmin = ({ id, name, setSections, setForm }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const getSections = async () => {
@@ -35,7 +35,7 @@ const SectionProductsAdmin = ({ id, name, setSections }) => {
           <Link to={"/admin/editSectionProducts"}>{name}</Link>
           <div className="buttons-table">
             <Link to={`/admin/editSectionsProduct/${id}`}>
-              <Button colorScheme="gray">
+              <Button colorScheme="gray" onClick={() => setForm("edit")}>
                 Editar
               </Button>
             </Link>

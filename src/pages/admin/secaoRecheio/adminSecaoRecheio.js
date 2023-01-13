@@ -1,34 +1,63 @@
+import {
+  Button,
+  Stack,
+  Table,
+  TableContainer,
+  Tbody,
+  Th,
+  Thead,
+  Tr,
+} from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import HeaderAdmin from "../../../components/headerAdmin/headerAdmin";
+import api from "../../../services/api";
+import RecheioAdmin from "../../../components/recheio/recheioAdmin";
 
-import React, { useState, useEffect} from "react"
-import { Link } from "react-router-dom"
-import HeaderAdmin from "../../../components/headerAdmin/headerAdmin"
-import api from "../../../services/api"
 
-export default function SectionsFillings (){
-  const [allSecaoRecheio, setAllSecaoRecheio] = useState([])
+export default function SectionsFillings() {
+  const [fillings, setFillings] = useState([]);
+
+  const getAllFillings = async () => {
+    const response = await api.get("/fillings");
+    setFillings(response.data.fillings);
+  };
 
   useEffect(() => {
-    async function getAllSecaoRecheio() {
-      const response = await api.get('/SecaoRecheio')
-        setAllSecaoRecheio(response.data)
-    }
+    getAllFillings();
+  }, []);
 
-    getAllSecaoRecheio()
-  }, [])
-
-
-  return(
-    <div>
-       < HeaderAdmin />
-      <h1>Página seçoes de Recheios</h1>
-      <table>
-      {allSecaoRecheio.map(secao => (
-        <tr>
-          <td><Link to={""}>{secao.name}</Link><div className='buttons-table'><button className='btn-editar'>Editar</button><button className='btn-excluir'>Excluir</button></div></td>
-        </tr>
-      ))}
-
-      </table>
-    </div>
-  )
+  return (
+    <>
+      <HeaderAdmin />
+      <Stack mt={10} mx={5} alignItems={"flex-end"}>
+        <Link to={"/admin/createFilling"}>
+          <Button colorScheme="green">Adiconar</Button>
+        </Link>
+      </Stack>
+      <Stack mx={5}>
+        <TableContainer backgroundColor="white" mt={5}>
+          <Table variant="striped" colorScheme="purple">
+            <Thead>
+              <Tr>
+                <Th>Seções de Recheio</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {/* {fillings.map((fillings) => {
+                return (
+                  <RecheioAdmin
+                    key={fillings.id}
+                    {...fillings}
+                    fillings={fillings}
+                    setFillings={setFillings}
+                  />
+                );
+              })} */}
+            </Tbody>
+          </Table>
+        </TableContainer>
+      </Stack>
+    </>
+  );
 }

@@ -6,6 +6,7 @@ import { Heading, Stack, Text, Button, Input } from "@chakra-ui/react";
 export default function CreateProduct() {
   const save = async () => {
     const name = document.querySelector("#sectionProductNameCreate").value;
+
     await api
       .post("/sections", {
         name: name,
@@ -25,27 +26,27 @@ export default function CreateProduct() {
   return (
     <>
       <>
-      <HeaderAdmin />
-      <Heading textAlign="center" mt={10}>
-        Adiconar Seção
-      </Heading>
-      <Stack
-        mt={10}
-        px={5}
-        maxWidth="800px"
-        position="relative"
-        left="50%"
-        transform="translateX(-50%)"
-      >
-        <form>
-          <Text mb="8px">Nome</Text>
-          <Input id="sectionProductNameCreate" />
-          <Button mt={5} w="100%" colorScheme="green" onClick={save}>
-            Salvar Alterações
-          </Button>
-        </form>
-      </Stack>
-    </>
+        <HeaderAdmin />
+        <Heading textAlign="center" mt={10}>
+          Adiconar Seção
+        </Heading>
+        <Stack
+          mt={10}
+          px={5}
+          maxWidth="800px"
+          position="relative"
+          left="50%"
+          transform="translateX(-50%)"
+        >
+          <form>
+            <Text mb="8px">Nome</Text>
+            <Input id="sectionProductNameCreate" />
+            <Button mt={5} w="100%" colorScheme="green" onClick={save}>
+              Salvar Alterações
+            </Button>
+          </form>
+        </Stack>
+      </>
     </>
   );
 }

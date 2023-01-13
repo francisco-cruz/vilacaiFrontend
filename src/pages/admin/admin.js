@@ -17,7 +17,7 @@ function Admin() {
     <>
     <HeaderAdmin/>
       <Stack px={5}>
-        <TableContainer mt={10}>
+        <TableContainer backgroundColor="white" mt={10}>
           <Table variant="striped" colorScheme="purple">
             <Thead>
               <Tr>

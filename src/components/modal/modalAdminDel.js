@@ -9,15 +9,16 @@ import {
   ModalOverlay,
   Text,
 } from "@chakra-ui/react";
+import api from "../../services/api";
 
 const ModalAdminDel = ({
   id,
   name,
   isOpen,
-  onOpen,
   onClose,
   deleteData,
 }) => {
+
   return (
     <>
       <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>

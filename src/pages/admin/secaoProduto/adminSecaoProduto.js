@@ -36,7 +36,7 @@ export default function SectionsProduct() {
         </Link>
       </Stack>
       <Stack mx={5}>
-        <TableContainer mt={5}>
+        <TableContainer backgroundColor="white" mt={5}>
           <Table variant="striped" colorScheme="purple">
             <Thead>
               <Tr>

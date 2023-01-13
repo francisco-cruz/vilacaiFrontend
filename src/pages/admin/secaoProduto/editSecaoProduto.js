@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import HeaderAdmin from "../../../components/headerAdmin/headerAdmin";
 import api from "../../../services/api";
 
-function EditRecheio() {
+function EditSectionsProduct() {
   const { id } = useParams();
   const [section, setSection] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -61,4 +61,4 @@ function EditRecheio() {
   );
 }
 
-export default EditRecheio;
+export default EditSectionsProduct;

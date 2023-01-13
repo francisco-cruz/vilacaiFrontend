@@ -1,58 +1,61 @@
+import {
+  Button,
+  Stack,
+  Table,
+  TableContainer,
+  Tbody,
+  Th,
+  Thead,
+  Tr,
+} from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import HeaderAdmin from "../../../components/headerAdmin/headerAdmin";
-
+import api from "../../../services/api";
+import RecheioAdmin from "../../../components/recheio/recheioAdmin";
 export default function Fillings() {
+  const [fillings, setFillings] = useState([]);
+
+  const getAllFillings = async () => {
+    const response = await api.get("/fillings");
+    setFillings(response.data.fillings);
+  };
+
+  useEffect(() => {
+    getAllFillings();
+  }, []);
+
   return (
-    <div>
+    <>
       <HeaderAdmin />
-      <h1>Página de Recheios</h1>
-      <table>
-        <tr>
-          <th>Administração</th>
-        </tr>
-        <tr>
-          <td>
-            <Link to={"/secaoproduto"}>Seção de Produtos</Link>
-            <div className="buttons-table">
-              <button className="btn-editar">Editar</button>
-              <button className="btn-excluir">Excluir</button>
-            </div>
-          </td>
-        </tr>
-        <hr />
-
-        <tr>
-          <td>
-            <Link to={"/produto"}>Seção de Produtos</Link>
-            <div className="buttons-table">
-              <button className="btn-editar">Editar</button>
-              <button className="btn-excluir">Excluir</button>
-            </div>
-          </td>
-        </tr>
-        <hr />
-
-        <tr>
-          <td>
-            <Link to={"/secaorecheio"}>Seção de Produtos</Link>
-            <div className="buttons-table">
-              <button className="btn-editar">Editar</button>
-              <button className="btn-excluir">Excluir</button>
-            </div>
-          </td>
-        </tr>
-        <hr />
-
-        <tr>
-          <td>
-            <Link to={"/recheio"}>Seção de Produtos</Link>
-            <div className="buttons-table">
-              <button className="btn-editar">Editar</button>
-              <button className="btn-excluir">Excluir</button>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
+      <Stack mt={10} mx={5} alignItems={"flex-end"}>
+        <Link to={"/admin/createFilling"}>
+          <Button colorScheme="green">Adiconar</Button>
+        </Link>
+      </Stack>
+      <Stack mx={5}>
+        <TableContainer backgroundColor="white" mt={5}>
+          <Table variant="striped" colorScheme="purple">
+            <Thead>
+              <Tr>
+                <Th>Recheios</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {fillings.map((fillings) => {
+                return (
+                  <RecheioAdmin
+                    key={fillings.id}
+                    {...fillings}
+                    fillings={fillings}
+                    setFillings={setFillings}
+                  />
+                );
+              })}
+            </Tbody>
+          </Table>
+        </TableContainer>
+      </Stack>
+    </>
   );
 }

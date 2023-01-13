@@ -16,7 +16,7 @@ function SecaoProduto({ section, allProdutos }) {
     <div className="secao">
       <div className="container_title">
         <p className="tile_secao">{section.name}</p>
-        <p className="qntd_secao">10 opcões</p>
+        <p className="qntd_secao">{allProdutos.products.length} opcões</p>
       </div>
 
       {ProductsOfTheSection.map((product) => {
